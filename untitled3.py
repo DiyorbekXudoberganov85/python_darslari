@@ -1,5 +1,6 @@
 class Shaxs:
-    def __init__(self , ismi , familiyasi, yoshi):
+    kursi=3
+    def __init__(self , ismi , familiyasi, yoshi=20):
         self.ismi = ismi 
         self.familiyasi = familiyasi 
         self.yoshi = yoshi 
@@ -9,14 +10,16 @@ class Shaxs:
         return self.ismi
     def __call__(self):
         return self.yoshi 
+    def yoshi(cls):
+        return cls.kursi
 class Professor(Shaxs):
     def __init__(self , ismi , familiyasi , yoshi , tel_nomer , millati):
         super().__init__(ismi, familiyasi, yoshi)
         self.tel_nomer = tel_nomer
         self.millati = millati 
-    def get_info(self) :
+    def get_info() :
         full = super().get_info()
-        full +=   self.millati
+        full +=   self.millati+cls.kursi
         return full 
 class Admin(Professor):
     def __init__(self, ismi, familiyasi, yoshi, tel_nomer, millati ,manzili):
